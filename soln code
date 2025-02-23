@@ -1,0 +1,15 @@
+s = "Roses are red."
+con = lambda x: bin(ord(x))[2:]
+sd = list(map(con, s))
+c = 0
+while c < len(sd):
+    while len(sd[c]) < 8:
+        sd[c] = '0' + sd[c]
+    c += 1
+fs = "".join(sd)
+
+n = 0 #USE BINARY (bin()) FUNCTION ONLY
+while bin(n)[2:] in fs:
+    n += 1
+   
+print(n - 1)
