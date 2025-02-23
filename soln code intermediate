@@ -1,0 +1,18 @@
+s = "ACSL is 45 years old and going strong."
+con = lambda x: bin(ord(x))[2:]
+sd = list(map(con, s))
+c = 0
+while c < len(sd):
+    while len(sd[c]) < 8:
+        sd[c] = '0' + sd[c]
+    c += 1
+fs = "".join(sd)
+
+n = 0 #USE BINARY (bin()) FUNCTION ONLY
+while bin(n)[2:] in fs:
+    fs = fs[:fs.find(bin(n)[2:])] + fs[fs.find(bin(n)[2:]) + len(bin(n)[2:]):]
+    if fs.rfind(bin(n)[2:]) != -1:
+        fs = fs[:fs.rfind(bin(n)[2:])] + fs[fs.rfind(bin(n)[2:]) + len(bin(n)[2:]):]
+    n += 1
+   
+print(n - 1)
